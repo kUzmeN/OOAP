@@ -3,45 +3,49 @@ package com.company;
 
 //Класс Guitar, обычная  - entity
 public class Guitar {
-    private  String serialNumber ,builder ,model , type , backWood , topWood;
+    private Builder builder;
+    private Type type;
+    private Wood topWood;
+    private Wood backWood;
+    private  String serialNumber ,model;
     private double price;
 
 
-    public Guitar(String serialNumber, double price,String builder, String model, String type, String backWood, String topWood) {
-        this.serialNumber = serialNumber;
+    public Guitar(Builder builder, Type type, Wood topWood, Wood backWood, String serialNumber, String model, double price) {
         this.builder = builder;
-        this.model = model;
         this.type = type;
-        this.backWood = backWood;
         this.topWood = topWood;
+        this.backWood = backWood;
+        this.serialNumber = serialNumber;
+        this.model = model;
         this.price = price;
     }
 
-    public double getPrice() {
-        return price;
+    public Builder getBuilder() {
+        return builder;
     }
 
-    public String getTopWood() {
+    public Type getType() {
+        return type;
+    }
+
+    public Wood getTopWood() {
         return topWood;
     }
 
-    public String getBackWood() {
+    public Wood getBackWood() {
         return backWood;
     }
 
-    public String getType() {
-        return type;
+    public String getSerialNumber() {
+        return serialNumber;
     }
 
     public String getModel() {
         return model;
     }
 
-    public String getBuilder() {
-        return builder;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
+    public double getPrice() {
+        return price;
     }
 }
