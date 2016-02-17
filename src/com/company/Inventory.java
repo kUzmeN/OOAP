@@ -36,35 +36,12 @@ public class Inventory {
     public List<Guitar> search(GuitarSpec searchSpec) {
         List matchingGuitars = new LinkedList<>();
         for (Iterator i = guitars.iterator(); i.hasNext(); ) {
-            GuitarSpec guitarSpec = (GuitarSpec) i.next();
-            //Серийный номер игнорируеться т.к. он уникален
-            //Цени игнорируется т.к. она уникальна
+            Guitar guitar = (Guitar) i.next();
 
-            Builder builder = searchSpec.getBuilder();
-            if ((builder != null) && (!builder.equals("")) &&
-                    (!builder.equals(guitarSpec.getBuilder())))
-                continue;
+            //Делегируем!
+            if (guitar.getSpec().matches(searchSpec))
+                matchingGuitars.add(guitar);
 
-            //Стринги которые сравниваем для модели сделаем lowerCase
-            //Для того чтобы не было ошибок при сравнении разных регистров
-            String model = searchSpec.getModel().toLowerCase();
-            if ((model != null) && (!model.equals("")) &&
-                    (!model.equals(guitarSpec.getModel().toLowerCase())))
-                continue;
-            Type type = searchSpec.getType();
-            if ((type != null) && (!type.equals("")) &&
-                    (!type.equals(guitarSpec.getType())))
-                continue;
-            Wood backWood = searchSpec.getBackWood();
-            if ((backWood != null) && (!backWood.equals("")) &&
-                    (!backWood.equals(guitarSpec.getBackWood())))
-                continue;
-            Wood topWood = searchSpec.getTopWood();
-            if ((topWood != null) && (!topWood.equals("")) &&
-                    (!topWood.equals(guitarSpec.getTopWood())))
-                continue;
-            matchingGuitars.add(guitarSpec
-            );
         }
 
         return matchingGuitars;
