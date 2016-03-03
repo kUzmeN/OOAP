@@ -49,7 +49,7 @@ public class Inventory {
         return matchingGuitars;
     }
 
-    public  List search(MandolinSpec searchSpec){
+    public List search(MandolinSpec searchSpec) {
         List matchingMandolins = new LinkedList<>();
         for (Iterator i = inventory.iterator(); i.hasNext(); ) {
             Mandolin mandolin = (Mandolin) i.next();
@@ -61,7 +61,20 @@ public class Inventory {
         }
 
         return matchingMandolins;
+    }
 
+    public  List search(BanjoSpec searchSpec) {
+        List matchingBanjos = new LinkedList<>();
+        for (Iterator i = inventory.iterator(); i.hasNext(); ) {
+            Mandolin mandolin = (Mandolin) i.next();
+
+            //Делегируем!
+            if (mandolin.getSpec().matches(searchSpec))
+                matchingBanjos.add(mandolin);
+
+        }
+
+        return matchingBanjos;
     }
 }
 
