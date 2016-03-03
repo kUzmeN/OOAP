@@ -2,16 +2,14 @@ package com.company;
 
 
 //Класс Guitar, обычная  - entity
-public class Guitar {
+public class Guitar extends Instrument{
     private GuitarSpec spec;
     private String serialNumber;
     private double price;
 
 
-    public Guitar(GuitarSpec spec, String serialNumber, double price) {
-        this.spec = spec;
-        this.serialNumber = serialNumber;
-        this.price = price;
+    public Guitar(String serialNumber, double price,GuitarSpec spec) {
+        super(serialNumber,price,spec);
     }
 
     public String getSerialNumber() {
