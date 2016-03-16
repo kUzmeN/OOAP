@@ -5,7 +5,7 @@ package com.company;
 для интсрументов,а также используеться как полиморфный тип.
  */
 
-public abstract class Instrument {
+public  class Instrument {
     private String serialNumber;
     private double price;
     private InstrumentSpec spec;
@@ -18,14 +18,13 @@ public abstract class Instrument {
         return price;
     }
 
-    public Instrument(String serialNumber, double price, InstrumentSpec spec){
+    public Instrument(String serialNumber, double price, InstrumentSpec spec) {
         this.serialNumber = serialNumber;
         this.price = price;
-
         this.spec = spec;
     }
 
-    public InstrumentSpec getSpec(){
+    public InstrumentSpec getSpec() {
         return spec;
     }
 }
