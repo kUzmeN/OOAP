@@ -2,7 +2,7 @@ package com.company;
 
 
 public enum InstrumentType {
-    GUITAR, BANJO, DOBRO, FIDDLE, BASS, MANDOLIN;
+    GUITAR, BANJO, DOBRO, FIDDLE, BASS, MANDOLIN,ARFA;
 
 
     public String toString() {
@@ -20,6 +20,8 @@ public enum InstrumentType {
                 return "Bass";
             case MANDOLIN:
                 return "Mandolin";
+            case ARFA:
+                return "Arfa";
             default:
                 return "Unspecified";
         }
